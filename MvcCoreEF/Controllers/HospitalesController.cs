@@ -11,10 +11,17 @@ namespace MvcCoreEF.Controllers
         {
             this.repo=repo;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Hospital> hospitals = this.repo.GetHospitales();
+            List<Hospital> hospitals = await this.repo.GetHospitalesAsync();
             return View(hospitals);
+        }
+
+        public async Task<IActionResult>Details(int idHospital)
+        {
+            Hospital hospital =
+                await this.repo.FindHospitalAsync(idHospital);
+            return View(hospital);
         }
     }
 }

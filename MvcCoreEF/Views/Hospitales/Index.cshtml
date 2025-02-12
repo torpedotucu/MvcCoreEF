@@ -39,6 +39,11 @@
                 <td>
                     @hospital.Camas
                 </td>
+                <td>
+                    <a asp-controller="Hospitales" asp-action="Details" asp-route-idhospital="@hospital.IdHospital" class="btn btn-info">
+                        Detalles
+                    </a>
+                </td>
             </tr>
         }
     </tbody>
