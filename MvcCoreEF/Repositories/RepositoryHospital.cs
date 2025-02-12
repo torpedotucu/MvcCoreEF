@@ -62,5 +62,19 @@ namespace MvcCoreEF.Repositories
             //ACTUALIZAMOS LA BBDD
             await this.context.SaveChangesAsync();
         }
+
+        public async Task UpdateHospitalAsync
+            (int idHospital, string nombre, string direccion, string telefono, int camas)
+        {
+            //BUSCAMOS EL OBJETO HOSPITAL A MODIFICAR
+            Hospital hospital = await this.FindHospitalAsync(idHospital);
+            //SE PUEDE MODIFICAR LO QUE SE DESEÉ MENOS EL IDHOSPITAL (KEY)
+            hospital.Nombre=nombre;
+            hospital.Direccion=direccion;
+            hospital.Telefono=telefono;
+            hospital.Camas=camas;
+            //NO EXISTE NINGUN METODO PARA REALIZAR UN UPDATE
+            await this.context.SaveChangesAsync();
+        }
     }
 }

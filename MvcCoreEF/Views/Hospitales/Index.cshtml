@@ -50,6 +50,9 @@
                     <a asp-controller="Hospitales" asp-action="Delete" asp-route-idhospital="@hospital.IdHospital" class="btn btn-danger">
                         DELETE
                     </a>
+                    <a asp-action="Edit" asp-controller="Hospitales" asp-route-idhospital="@hospital.IdHospital" class="btn btn-warning">
+                        UPDATE
+                    </a>
                 </td>
             </tr>
         }
