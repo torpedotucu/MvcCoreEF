@@ -1,0 +1,33 @@
+﻿@model List<Departamento>
+
+<h1>DEPARTAMENTOS</h1>
+<table>
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>Departamento</th>
+            <th>Localidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Departamento dept in Model){
+            <tr>
+                <td>
+                    @dept.Dept_no
+                </td>
+                <td>@dept.Nombre</td>
+                <td>
+                    @dept.Localidad
+                </td>
+                <td>
+                    <a asp-controller="Departamentos" asp-action="Details" class="btn btn-info">
+                        Detalles
+                    </a>
+                </td>
+            </tr>
+            
+        }
+    </tbody>
+</table>

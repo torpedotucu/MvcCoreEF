@@ -7,11 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddTransient<RepositoryHospital>();
+//builder.Services.AddTransient<RepositoryHospital>();
+builder.Services.AddTransient<RepositoryDepartamento>();
 string connectionString = builder.Configuration.GetConnectionString("SqlHospital");
 //PARA INYECTAR UN SERVICIO CONTEXT SE UTILIZA EL METODO AddDbContext CON LAS OPCIONES QUE NECESITE LA BBDD
-builder.Services.AddDbContext<HospitalContext>(options=>options.UseSqlServer(connectionString));
-
+//builder.Services.AddDbContext<HospitalContext>(options=>options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<DepartamentoContext>(options => options.UseSqlServer(connectionString));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
