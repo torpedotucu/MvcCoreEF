@@ -52,5 +52,15 @@ namespace MvcCoreEF.Repositories
             //INDICAMOS QUE ALMACENE LOS DATOS EN LA BBDD
             await this.context.SaveChangesAsync();
         }
+
+        public async Task DeleteHospitalAsync(int idHospital)
+        {
+            //BUSCAMOS EL MODEL PARA ELIMINARLO
+            Hospital hospital = await this.FindHospitalAsync(idHospital);
+            //ELIMINAMOS DE LA COLECCION DbSet<T> DEL CONTEXT
+            this.context.Hospitales.Remove(hospital);
+            //ACTUALIZAMOS LA BBDD
+            await this.context.SaveChangesAsync();
+        }
     }
 }

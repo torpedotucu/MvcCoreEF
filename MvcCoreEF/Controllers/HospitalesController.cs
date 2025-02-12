@@ -23,5 +23,22 @@ namespace MvcCoreEF.Controllers
                 await this.repo.FindHospitalAsync(idHospital);
             return View(hospital);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult>Create(Hospital hospital)
+        {
+            await this.repo.InsertHospitalAsync(hospital.IdHospital, hospital.Nombre, hospital.Direccion, hospital.Telefono, hospital.Camas);
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult>Delete(int idhospital)
+        {
+            await this.repo.DeleteHospitalAsync(idhospital);
+            return RedirectToAction("Index");
+        }
     }
 }
