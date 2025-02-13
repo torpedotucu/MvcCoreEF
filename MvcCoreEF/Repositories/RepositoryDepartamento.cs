@@ -35,7 +35,7 @@ namespace MvcCoreEF.Repositories
 
         public async Task InsertDepartamentoAsync(int idDept, string nombre, string localidad)
         {
-            Departamento dept;
+            Departamento dept=new Departamento();
             dept.Dept_no=idDept;
             dept.Nombre=nombre;
             dept.Localidad=localidad;
